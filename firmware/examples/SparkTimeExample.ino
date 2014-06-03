@@ -31,7 +31,7 @@ void loop() {
 	Serial.println(timeStr);
       } else if (sec == 40) {
 	// Including current timezone
-	Serial.print(rtc.ISODateString(currentTime));
+	Serial.println(rtc.ISODateString(currentTime));
       } else if (sec == 50) {
 	// UTC or Zulu time
 	Serial.println(rtc.ISODateUTCString(currentTime));	
