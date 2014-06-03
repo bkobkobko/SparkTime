@@ -28,13 +28,13 @@ void loop() {
 	timeStr += rtc.dayString(currentTime);
 	timeStr += ", ";
 	timeStr += rtc.yearString(currentTime);
-	Serial.print(timeStr);
+	Serial.println(timeStr);
       } else if (sec == 40) {
 	// Including current timezone
 	Serial.print(rtc.ISODateString(currentTime));
       } else if (sec == 50) {
 	// UTC or Zulu time
-	Serial.print(rtc.ISODateUTCString(currentTime));	
+	Serial.println(rtc.ISODateUTCString(currentTime));	
       } else {
 	// Just the time in 12 hour format
 	timeStr = "";
@@ -45,7 +45,7 @@ void loop() {
 	timeStr += rtc.secondString(currentTime);	
 	timeStr += " ";	
 	timeStr += rtc.AMPMString(currentTime);
-	Serial.print(timeStr);
+	Serial.println(timeStr);
       }
       lastTime = currentTime;
     }
