@@ -1,0 +1,7 @@
+{
+  "name": "SparkTime",
+  "author": "Brian Ogilvie <bko@pobox.com>",
+  "license": "MIT",
+  "version": "0.0.2",
+  "description": "A Spark Library for NTP time"
+}
