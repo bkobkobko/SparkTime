@@ -409,6 +409,7 @@ void SparkTime::updateNTPTime() {
     _lastSyncNTPTime = _packetBuffer[40] << 24 | _packetBuffer[41] << 16 | _packetBuffer[42] << 8 | _packetBuffer[43];
     _lastSyncNTPFrac = _packetBuffer[44] << 24 | _packetBuffer[45] << 16 | _packetBuffer[46] << 8 | _packetBuffer[47];
     _lastSyncMillisTime = localmsec;
+    _lastSyncMillisTime -= ((_lastSyncNTPFrac >> 10) * 1000) >> 22;	// (_lastSyncNTPFrac * 1000) >> 32
     _syncedOnce = true;
   }
   //digitalWrite(D7,LOW);
