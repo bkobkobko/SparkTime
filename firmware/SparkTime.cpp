@@ -376,6 +376,7 @@ bool SparkTime::isEuroDST(uint32_t tnow) {
 void SparkTime::updateNTPTime() {
   //digitalWrite(D7,HIGH);
   _isSyncing = true;
+  RGB.color(255,255,0);
   _UDPClient->begin(_localPort);
   memset(_packetBuffer, 0, SPARKTIMENTPSIZE); 
   _packetBuffer[0] = 0b11100011;   // LI, Version, Mode
@@ -409,7 +410,11 @@ void SparkTime::updateNTPTime() {
     _lastSyncNTPTime = _packetBuffer[40] << 24 | _packetBuffer[41] << 16 | _packetBuffer[42] << 8 | _packetBuffer[43];
     _lastSyncNTPFrac = _packetBuffer[44] << 24 | _packetBuffer[45] << 16 | _packetBuffer[46] << 8 | _packetBuffer[47];
     _lastSyncMillisTime = localmsec;
+    _lastSyncMillisTime -= ((_lastSyncNTPFrac >> 10) * 1000) >> 22;	// (_lastSyncNTPFrac * 1000) >> 32
     _syncedOnce = true;
+    RGB.color(0,255,0);
+  } else {
+    RGB.color(255,0,0);
   }
   //digitalWrite(D7,LOW);
   _UDPClient->stop();  
