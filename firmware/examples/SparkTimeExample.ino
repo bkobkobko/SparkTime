@@ -1,5 +1,4 @@
-// This #include statement was automatically added by the Spark IDE.
-#include "SparkTime.h"
+#include "SparkTime/SparkTime.h"
 
 UDP UDPClient;
 SparkTime rtc;
