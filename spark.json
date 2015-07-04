@@ -2,6 +2,6 @@
   "name": "SparkTime",
   "author": "Brian Ogilvie <bko@pobox.com>",
   "license": "MIT",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A Spark Library for NTP time"
 }
